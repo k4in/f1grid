@@ -1,0 +1,11 @@
+node_modules/
+.tanstack/
+coverage/
+.pnpm-store/
+pnpm-lock.yaml
+pnpm-workspace.yaml
+package-lock.json
+
+routeTree.gen.ts
+*.types.ts
+AGENTS.md
