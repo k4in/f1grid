@@ -30,5 +30,5 @@ export function formatDriverName(driver: Driver): string {
 }
 
 export function flagUrl(countryCode: string): string {
-  return `https://flagcdn.com/w40/${countryCode.toLowerCase()}.png`;
+  return `https://flagcdn.com/w80/${countryCode.toLowerCase()}.png`;
 }

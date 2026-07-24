@@ -84,10 +84,7 @@ export function GridBoard() {
           draggable
           onDragStart={(event) => handleDragStart(event, id)}
           onDragEnd={handleDragEnd}
-          className={cn(
-            "outline-none",
-            draggingId === id && "opacity-50",
-          )}
+          className={cn("outline-none", draggingId === id && "opacity-50")}
         >
           <DriverCard driver={driver} isDragging={draggingId === id} />
         </div>
@@ -99,18 +96,16 @@ export function GridBoard() {
     <div className="flex min-h-0 flex-1 gap-3 p-3">
       <aside className="flex w-56 shrink-0 flex-col gap-2">
         <p className="px-1 font-mono text-[10px] tracking-[0.16em] text-muted-foreground uppercase">
-          Free agent pools
+          Pools
         </p>
         {POOL_IDS.map((poolId) => {
           const meta = POOL_META[poolId];
-          const count = assignments[poolId]?.length ?? 0;
           return (
             <DropContainer
               key={poolId}
               id={poolId}
               title={meta.shortLabel}
               subtitle={meta.hint}
-              count={count}
               isOver={overId === poolId}
               compact
               onDragOver={(event) => handleDragOver(event, poolId)}
@@ -124,27 +119,20 @@ export function GridBoard() {
       </aside>
 
       <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-2">
-        <div className="flex items-end justify-between px-1">
+        <div className="px-1">
           <p className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground uppercase">
-            Constructor bays
-          </p>
-          <p className="font-mono text-[10px] text-muted-foreground/80">
-            Drag freely · no seat limits
+            Teams
           </p>
         </div>
-        <div className="grid min-h-0 flex-1 auto-rows-fr grid-cols-12 gap-2">
-          {teams.map((team, index) => {
-            const count = assignments[team.id]?.length ?? 0;
-            // 4 + 4 + 3 across a 12-col track
-            const spanClass = index < 8 ? "col-span-3" : "col-span-4";
+        <div className="grid min-h-0 flex-1 auto-rows-fr grid-cols-4 gap-2">
+          {teams.map((team) => {
             return (
-              <div key={team.id} className={cn("min-h-0", spanClass)}>
+              <div key={team.id} className="min-h-0">
                 <DropContainer
                   id={team.id}
                   title={team.shortName}
                   subtitle={team.fullName}
                   accent={team.teamColor}
-                  count={count}
                   isOver={overId === team.id}
                   onDragOver={(event) => handleDragOver(event, team.id)}
                   onDragLeave={(event) => handleDragLeave(event, team.id)}

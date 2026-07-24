@@ -11,15 +11,15 @@ const SEED: Partial<Record<keyof Assignments, string[]>> = {
   "red-bull": ["verstappen", "hadjar"],
   ferrari: ["hamilton", "leclerc"],
   williams: ["sainz", "albon"],
-  "racing-bulls": ["lawson", "lindblad"],
-  "aston-martin": ["stroll", "alonso"],
-  haas: ["ocon", "bearman"],
+  "racing-bulls": ["lawson", "lindblad", "tsolov"],
+  "aston-martin": ["stroll"],
+  haas: ["bearman"],
   audi: ["hulkenberg", "bortoleto"],
   alpine: ["gasly", "colapinto"],
   cadillac: ["bottas", "perez"],
-  junior: ["aron", "tsolov", "camara", "herta", "fornaroli", "dunne"],
+  junior: ["aron", "camara", "fornaroli", "herta", "dunne"],
   outOfContract: ["tsunoda"],
-  outNextSeason: [],
+  outNextSeason: ["alonso", "ocon"],
 };
 
 export function createDefaultAssignments(): Assignments {

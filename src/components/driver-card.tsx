@@ -26,26 +26,26 @@ export function DriverCard({ driver, isDragging }: DriverCardProps) {
   return (
     <article
       className={cn(
-        "group relative flex cursor-grab items-center gap-2 rounded-md border border-white/6 bg-[#0d1218]/92 px-2 py-1.5 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] active:cursor-grabbing",
+        "group relative flex cursor-grab items-center gap-2 rounded-md border border-border/50 bg-card/90 px-2 py-1.5 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] active:cursor-grabbing",
         "transition-[transform,box-shadow,opacity] duration-150",
-        "hover:border-white/12 hover:bg-[#121922]",
-        isDragging && "opacity-40 ring-1 ring-papaya/50",
+        "hover:border-border hover:bg-card",
+        isDragging && "opacity-40 ring-1 ring-ring/40",
       )}
       title={STATUS_LABEL[driver.status.state]}
     >
       <span
         aria-hidden
         className={cn(
-          "size-1.5 shrink-0 rounded-full",
+          "size-2.5 shrink-0 rounded-full",
           STATUS_PIP[driver.status.state],
         )}
       />
       <img
         src={flagUrl(driver.countryCode)}
         alt=""
-        width={16}
-        height={12}
-        className="h-3 w-4 shrink-0 rounded-[2px] object-cover ring-1 ring-white/10"
+        width={22}
+        height={16}
+        className="h-4 w-[22px] shrink-0 rounded-[2px] object-cover ring-1 ring-border/60"
         loading="lazy"
         draggable={false}
       />

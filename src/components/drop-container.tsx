@@ -7,7 +7,6 @@ type DropContainerProps = {
   title: string;
   subtitle?: string;
   accent?: string;
-  count: number;
   isOver?: boolean;
   compact?: boolean;
   children: ReactNode;
@@ -21,7 +20,6 @@ export function DropContainer({
   title,
   subtitle,
   accent,
-  count,
   isOver,
   compact,
   children,
@@ -36,9 +34,9 @@ export function DropContainer({
       onDragLeave={onDragLeave}
       onDrop={onDrop}
       className={cn(
-        "flex h-full min-h-0 flex-col overflow-hidden rounded-lg border border-white/6 bg-[#0a0e14]/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
+        "flex h-full min-h-0 flex-col overflow-hidden rounded-lg border border-border/50 bg-card/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
         "transition-[border-color,box-shadow,background-color] duration-150",
-        isOver && "border-papaya/50 bg-papaya/5 shadow-[0_0_0_1px_rgba(255,128,0,0.25)]",
+        isOver && "border-ring bg-muted/30 ring-1 ring-ring/30",
       )}
       style={
         accent
@@ -50,7 +48,7 @@ export function DropContainer({
     >
       <header
         className={cn(
-          "flex items-start justify-between gap-2 border-b border-white/5 px-2.5 py-2",
+          "border-b border-border/40 px-2.5 py-2",
           compact && "py-1.5",
         )}
       >
@@ -76,9 +74,6 @@ export function DropContainer({
             </p>
           ) : null}
         </div>
-        <span className="font-mono text-[10px] text-muted-foreground tabular-nums">
-          {String(count).padStart(2, "0")}
-        </span>
       </header>
 
       <div

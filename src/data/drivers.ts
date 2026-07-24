@@ -9,8 +9,7 @@ export const drivers: Drivers = [
     countryCode: "GB",
     status: {
       state: "current",
-      until: "2027-12-31",
-      since: "2019-03-17",
+      since: "2019",
     },
   },
   {
@@ -20,8 +19,7 @@ export const drivers: Drivers = [
     countryCode: "AU",
     status: {
       state: "contract",
-      until: "2028-12-31",
-      since: "2023-03-05",
+      since: "2023",
     },
   },
   {
@@ -31,8 +29,7 @@ export const drivers: Drivers = [
     countryCode: "GB",
     status: {
       state: "current",
-      until: null,
-      since: "2022-03-20",
+      since: "2022",
     },
   },
   {
@@ -42,8 +39,7 @@ export const drivers: Drivers = [
     countryCode: "IT",
     status: {
       state: "current",
-      until: "2027-12-31",
-      since: "2025-03-16",
+      since: "2025",
     },
   },
   {
@@ -53,8 +49,7 @@ export const drivers: Drivers = [
     countryCode: "NL",
     status: {
       state: "contract",
-      until: "2028-12-31",
-      since: "2016-05-15",
+      since: "2016",
     },
   },
   {
@@ -64,8 +59,7 @@ export const drivers: Drivers = [
     countryCode: "FR",
     status: {
       state: "current",
-      until: null,
-      since: "2025-03-16",
+      since: "2025",
     },
   },
   {
@@ -75,8 +69,7 @@ export const drivers: Drivers = [
     countryCode: "GB",
     status: {
       state: "current",
-      until: null,
-      since: "2025-03-16",
+      since: "2025",
     },
   },
   {
@@ -86,8 +79,7 @@ export const drivers: Drivers = [
     countryCode: "MC",
     status: {
       state: "contract",
-      until: "2029-12-31",
-      since: "2019-03-17",
+      since: "2019",
     },
   },
   {
@@ -97,8 +89,7 @@ export const drivers: Drivers = [
     countryCode: "ES",
     status: {
       state: "current",
-      until: "2027-12-31",
-      since: "2025-03-16",
+      since: "2025",
     },
   },
   {
@@ -108,8 +99,7 @@ export const drivers: Drivers = [
     countryCode: "TH",
     status: {
       state: "current",
-      until: null,
-      since: "2022-03-20",
+      since: "2022",
     },
   },
   {
@@ -119,8 +109,7 @@ export const drivers: Drivers = [
     countryCode: "NZ",
     status: {
       state: "current",
-      until: null,
-      since: "2025-03-16",
+      since: "2025",
     },
   },
   {
@@ -130,7 +119,6 @@ export const drivers: Drivers = [
     countryCode: "GB",
     status: {
       state: "current",
-      until: null,
       since: null,
     },
   },
@@ -141,8 +129,7 @@ export const drivers: Drivers = [
     countryCode: "CA",
     status: {
       state: "contract",
-      until: "2028-12-31",
-      since: "2017-03-26",
+      since: "2017",
     },
   },
   {
@@ -152,8 +139,7 @@ export const drivers: Drivers = [
     countryCode: "ES",
     status: {
       state: "current",
-      until: null,
-      since: "2023-03-05",
+      since: "2023",
     },
   },
   {
@@ -163,8 +149,7 @@ export const drivers: Drivers = [
     countryCode: "FR",
     status: {
       state: "current",
-      until: null,
-      since: "2025-03-16",
+      since: "2025",
     },
   },
   {
@@ -174,8 +159,7 @@ export const drivers: Drivers = [
     countryCode: "GB",
     status: {
       state: "current",
-      until: "2027-12-31",
-      since: "2025-03-16",
+      since: "2025",
     },
   },
   {
@@ -185,8 +169,7 @@ export const drivers: Drivers = [
     countryCode: "DE",
     status: {
       state: "current",
-      until: null,
-      since: "2025-03-16",
+      since: "2025",
     },
   },
   {
@@ -196,8 +179,7 @@ export const drivers: Drivers = [
     countryCode: "BR",
     status: {
       state: "current",
-      until: "2027-12-31",
-      since: "2025-03-16",
+      since: "2025",
     },
   },
   {
@@ -207,8 +189,7 @@ export const drivers: Drivers = [
     countryCode: "FR",
     status: {
       state: "contract",
-      until: null, // 2028
-      since: "2023-03-05",
+      since: "2023",
     },
   },
   {
@@ -218,8 +199,7 @@ export const drivers: Drivers = [
     countryCode: "AR",
     status: {
       state: "current",
-      until: null,
-      since: "2025-03-16",
+      since: "2025",
     },
   },
   {
@@ -229,8 +209,7 @@ export const drivers: Drivers = [
     countryCode: "FI",
     status: {
       state: "current",
-      until: null, //2027
-      since: null, //2026
+      since: "2026",
     },
   },
   {
@@ -240,8 +219,7 @@ export const drivers: Drivers = [
     countryCode: "MX",
     status: {
       state: "current",
-      until: null, //2027
-      since: null, //2026
+      since: "2026",
     },
   },
 
@@ -253,7 +231,6 @@ export const drivers: Drivers = [
     countryCode: "JP",
     status: {
       state: "previous",
-      until: null,
       since: null,
     },
   },
@@ -264,7 +241,6 @@ export const drivers: Drivers = [
     countryCode: "EE",
     status: {
       state: "junior",
-      until: null,
       since: null,
     },
   },
@@ -275,7 +251,6 @@ export const drivers: Drivers = [
     countryCode: "BG",
     status: {
       state: "junior",
-      until: null,
       since: null,
     },
   },
@@ -286,7 +261,6 @@ export const drivers: Drivers = [
     countryCode: "BR",
     status: {
       state: "junior",
-      until: null,
       since: null,
     },
   },
@@ -297,7 +271,6 @@ export const drivers: Drivers = [
     countryCode: "US",
     status: {
       state: "junior",
-      until: null,
       since: null,
     },
   },
@@ -308,7 +281,6 @@ export const drivers: Drivers = [
     countryCode: "IT",
     status: {
       state: "junior",
-      until: null,
       since: null,
     },
   },
@@ -319,7 +291,6 @@ export const drivers: Drivers = [
     countryCode: "IE",
     status: {
       state: "junior",
-      until: null,
       since: null,
     },
   },

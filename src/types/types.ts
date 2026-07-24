@@ -2,9 +2,10 @@ export type DriverStatusState = "contract" | "current" | "junior" | "previous";
 
 export type DriverStatus = {
   state: DriverStatusState;
-  /** only "contract" has an "until" value, Date ISO string */
-  until: string | null;
-  /** only "contract" and "current" have a "since" value, Date ISO string */
+  /**
+   * Full calendar year the current stint / contract started, e.g. "2026".
+   * Typically set for "contract" and "current"; null for junior/previous or unknown.
+   */
   since: string | null;
 };
 

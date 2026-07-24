@@ -22,6 +22,7 @@ import {
 } from "@/components/shadcn/alert-dialog";
 import { Badge } from "@/components/shadcn/badge";
 import { Button } from "@/components/shadcn/button";
+import { Separator } from "@/components/shadcn/separator";
 import { DEFAULT_GRID_ID } from "@/data/initial-grid";
 import { cn } from "@/lib/utils/cn";
 import { useGridStore } from "@/store/grid-store";
@@ -39,6 +40,10 @@ export function AppHeader() {
   const [saveAsOpen, setSaveAsOpen] = useState(false);
   const [restoreOpen, setRestoreOpen] = useState(false);
   const [exportPayload, setExportPayload] = useState("");
+  const [pendingDelete, setPendingDelete] = useState<{
+    id: string;
+    label: string;
+  } | null>(null);
 
   const orderedGrids = useMemo(() => {
     return Object.values(grids).sort((a, b) => {
@@ -51,51 +56,48 @@ export function AppHeader() {
   const activeIsDefault = activeGridId === DEFAULT_GRID_ID;
 
   return (
-    <header className="flex shrink-0 items-center gap-4 border-b border-white/6 bg-[#070b10]/90 px-4 py-2.5 backdrop-blur-md">
-      <div className="flex min-w-0 items-center gap-3">
-        <div className="flex items-baseline gap-2">
-          <span className="font-heading text-sm font-bold tracking-[0.22em] text-papaya uppercase">
-            F1
-          </span>
-          <span className="font-heading text-sm font-semibold tracking-[0.18em] text-foreground uppercase">
-            Grid
-          </span>
-        </div>
-        <div
-          aria-hidden
-          className="hidden h-4 w-px bg-white/10 sm:block"
-        />
-        <p className="hidden text-[11px] text-muted-foreground sm:block">
-          Build next season&apos;s line-up
-        </p>
+    <header className="flex shrink-0 items-center gap-4 border-b border-border/60 bg-background/80 px-4 py-2.5 backdrop-blur-md">
+      <div className="flex min-w-0 items-center">
+        <span className="font-heading text-sm font-semibold tracking-tight text-foreground">
+          Next Year&apos;s Grid
+        </span>
       </div>
+
+      <Separator
+        orientation="vertical"
+        className="data-[orientation=vertical]:h-5"
+      />
 
       <div className="flex min-w-0 flex-1 items-center gap-1.5 overflow-x-auto">
         {orderedGrids.map((grid) => {
           const active = grid.id === activeGridId;
+
+          // selected → accent | default → muted | additional → primary
+          const tone = active
+            ? "bg-accent text-accent-foreground hover:bg-accent/90"
+            : grid.isDefault
+              ? "bg-muted text-muted-foreground hover:bg-muted/80"
+              : "bg-primary text-primary-foreground hover:bg-primary/80";
+
           return (
             <div
               key={grid.id}
-              className={cn(
-                "flex shrink-0 items-center rounded-full",
-                active && "ring-1 ring-papaya/50",
-              )}
+              className="inline-flex h-5 shrink-0 items-center leading-none"
             >
               <button
                 type="button"
                 onClick={() => setActiveGrid(grid.id)}
-                className="outline-none"
+                className="inline-flex h-5 items-center leading-none outline-none"
               >
                 <Badge
-                  variant={grid.isDefault ? "secondary" : "default"}
+                  variant="default"
                   className={cn(
-                    "max-w-40 cursor-pointer transition-opacity",
-                    !grid.isDefault && !active && "opacity-80 hover:opacity-100",
+                    "max-w-40 cursor-pointer border-transparent leading-none",
                     !grid.isDefault && "rounded-r-none",
-                    grid.isDefault && "bg-muted text-muted-foreground",
+                    tone,
                   )}
                 >
-                  <span className="truncate">{grid.label}</span>
+                  <span className="truncate leading-none">{grid.label}</span>
                 </Badge>
               </button>
               {!grid.isDefault ? (
@@ -103,10 +105,12 @@ export function AppHeader() {
                   type="button"
                   aria-label={`Delete ${grid.label}`}
                   className={cn(
-                    "inline-flex h-5 items-center rounded-r-full border border-l-0 border-transparent bg-primary pr-1.5 text-primary-foreground",
-                    !active && "opacity-80 hover:opacity-100",
+                    "inline-flex h-5 items-center rounded-r-full pr-1.5 leading-none",
+                    tone,
                   )}
-                  onClick={() => deleteGrid(grid.id)}
+                  onClick={() =>
+                    setPendingDelete({ id: grid.id, label: grid.label })
+                  }
                 >
                   <XIcon className="size-2.5" />
                 </button>
@@ -117,24 +121,21 @@ export function AppHeader() {
       </div>
 
       <div className="flex shrink-0 items-center gap-1.5">
-        <Button
-          variant="outline"
-          size="sm"
-          disabled={!activeIsDefault}
-          onClick={() => setRestoreOpen(true)}
-          title={
-            activeIsDefault
-              ? "Restore the default grid"
-              : "Restore is only available on the default grid"
-          }
-        >
-          <RotateCcwIcon data-icon="inline-start" />
-          Restore
-        </Button>
+        {activeIsDefault ? (
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setRestoreOpen(true)}
+          >
+            <RotateCcwIcon data-icon="inline-start" />
+            Restore
+          </Button>
+        ) : null}
         <Button variant="outline" size="sm" onClick={() => setSaveAsOpen(true)}>
           <SaveIcon data-icon="inline-start" />
-          Save as
+          Save as new grid
         </Button>
+        <Separator orientation="vertical" className="mx-1 data-[orientation=vertical]:h-5" />
         <Button variant="outline" size="sm" onClick={() => setImportOpen(true)}>
           <UploadIcon data-icon="inline-start" />
           Import
@@ -178,6 +179,39 @@ export function AppHeader() {
               }}
             >
               Restore defaults
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      <AlertDialog
+        open={pendingDelete !== null}
+        onOpenChange={(open) => {
+          if (!open) setPendingDelete(null);
+        }}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              Delete {pendingDelete?.label ?? "grid"}?
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              This permanently removes the grid and its driver placements. This
+              cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              variant="destructive"
+              onClick={() => {
+                if (pendingDelete) {
+                  deleteGrid(pendingDelete.id);
+                }
+                setPendingDelete(null);
+              }}
+            >
+              Delete grid
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
