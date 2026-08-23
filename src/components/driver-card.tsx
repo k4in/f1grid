@@ -6,7 +6,7 @@ import type { DriverStatusState } from "@/types/types";
 const STATUS_PIP: Record<DriverStatusState, string> = {
   contract: "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.55)]",
   current: "bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.45)]",
-  junior: "bg-sky-400 shadow-[0_0_8px_rgba(56,189,248,0.45)]",
+  junior: "bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]",
   previous: "bg-violet-400 shadow-[0_0_8px_rgba(167,139,250,0.45)]",
 };
 

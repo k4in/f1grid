@@ -68,7 +68,7 @@ export const drivers: Drivers = [
     birthday: "1985-01-07",
     countryCode: "GB",
     status: {
-      state: "current",
+      state: "contract",
       since: "2025",
     },
   },
@@ -88,7 +88,7 @@ export const drivers: Drivers = [
     birthday: "1994-09-01",
     countryCode: "ES",
     status: {
-      state: "current",
+      state: "contract",
       since: "2025",
     },
   },
@@ -98,7 +98,7 @@ export const drivers: Drivers = [
     birthday: "1996-03-23",
     countryCode: "TH",
     status: {
-      state: "current",
+      state: "contract",
       since: "2022",
     },
   },
@@ -208,7 +208,7 @@ export const drivers: Drivers = [
     birthday: "1989-08-28",
     countryCode: "FI",
     status: {
-      state: "current",
+      state: "contract",
       since: "2026",
     },
   },
@@ -218,7 +218,7 @@ export const drivers: Drivers = [
     birthday: "1990-01-26",
     countryCode: "MX",
     status: {
-      state: "current",
+      state: "contract",
       since: "2026",
     },
   },
