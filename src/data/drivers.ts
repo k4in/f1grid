@@ -8,7 +8,7 @@ export const drivers: Drivers = [
     birthday: "1999-11-13",
     countryCode: "GB",
     status: {
-      state: "current",
+      state: "contract",
       since: "2019",
     },
   },
@@ -28,7 +28,7 @@ export const drivers: Drivers = [
     birthday: "1998-02-15",
     countryCode: "GB",
     status: {
-      state: "current",
+      state: "contract",
       since: "2022",
     },
   },
@@ -38,7 +38,7 @@ export const drivers: Drivers = [
     birthday: "2006-08-25",
     countryCode: "IT",
     status: {
-      state: "current",
+      state: "contract",
       since: "2025",
     },
   },
@@ -58,7 +58,7 @@ export const drivers: Drivers = [
     birthday: "2004-09-28",
     countryCode: "FR",
     status: {
-      state: "current",
+      state: "contract",
       since: "2025",
     },
   },
@@ -168,7 +168,7 @@ export const drivers: Drivers = [
     birthday: "1987-08-19",
     countryCode: "DE",
     status: {
-      state: "current",
+      state: "contract",
       since: "2025",
     },
   },
@@ -178,7 +178,7 @@ export const drivers: Drivers = [
     birthday: "2004-10-14",
     countryCode: "BR",
     status: {
-      state: "current",
+      state: "contract",
       since: "2025",
     },
   },
@@ -198,7 +198,7 @@ export const drivers: Drivers = [
     birthday: "2003-05-27",
     countryCode: "AR",
     status: {
-      state: "current",
+      state: "contract",
       since: "2025",
     },
   },
@@ -291,6 +291,26 @@ export const drivers: Drivers = [
     countryCode: "IE",
     status: {
       state: "junior",
+      since: null,
+    },
+  },
+  {
+    firstname: "Ryo",
+    lastname: "Hirakawa",
+    birthday: "1994-03-07",
+    countryCode: "JP",
+    status: {
+      state: "junior",
+      since: null,
+    },
+  },
+  {
+    firstname: "Jack",
+    lastname: "Doohan",
+    birthday: "2003-01-20",
+    countryCode: "AU",
+    status: {
+      state: "previous",
       since: null,
     },
   },
