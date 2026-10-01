@@ -138,7 +138,7 @@ export const drivers: Drivers = [
     birthday: "1981-07-29",
     countryCode: "ES",
     status: {
-      state: "current",
+      state: "contract",
       since: "2023",
     },
   },
@@ -148,8 +148,8 @@ export const drivers: Drivers = [
     birthday: "1996-09-17",
     countryCode: "FR",
     status: {
-      state: "current",
-      since: "2025",
+      state: "previous",
+      since: null,
     },
   },
   {

@@ -13,12 +13,12 @@ const SEED: Partial<Record<keyof Assignments, string[]>> = {
   williams: ["sainz", "albon"],
   "racing-bulls": ["lawson", "lindblad", "tsolov"],
   "aston-martin": ["stroll", "alonso"],
-  haas: ["bearman", "ocon", "camara", "fornaroli", "doohan", "hirakawa"],
+  haas: ["bearman", "camara", "fornaroli", "doohan", "hirakawa"],
   audi: ["hulkenberg", "bortoleto"],
   alpine: ["gasly", "colapinto"],
   cadillac: ["bottas", "perez"],
   junior: ["aron", "herta", "dunne"],
-  outOfContract: ["tsunoda"],
+  outOfContract: ["tsunoda", "ocon"],
   outNextSeason: [],
 };
 
